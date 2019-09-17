@@ -1,0 +1,17 @@
+<?php
+    /**
+     * @var \Training\Testimonials\Block\DisplayTestimonials $block
+     */
+    $testimonialsCollection = $block->getTestimonialsCollection();
+?>
+
+<?php foreach ($testimonialsCollection as $testimonialObject): ?>
+    <p>
+        <?php echo $testimonialObject->getTestimonialText(); ?>
+    </p>
+
+    <p>
+        Created At: <?php echo $testimonialObject->getCreatedAt(); ?> by <?php echo $testimonialObject->getFullName(); ?>
+    </p>
+
+<?php endforeach; ?>
