@@ -7,7 +7,7 @@
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
     <menu>
-        <add id="Training_Testimonials::testimonials_menu" title="Testimonials" translate="title" module="Training_Testimonials" sortOrder="200" resource="Training_Testimonials::parent"/>
-        <add id="Training_Testimonials::testimonials" title="Manage Testimonials" translate="title" module="Training_Testimonials" sortOrder="200" parent="Training_Testimonials::testimonials_menu" action="testimonials/testimonial/index" resource="Training_Testimonials::parent"/>
+        <add id="Training_Testimonials::testimonials" title="Testimonials" translate="title" module="Training_Testimonials" sortOrder="200" resource="Training_Testimonials::parent"/>
+        <add id="Training_Testimonials::testimonials_menu" title="Manage Testimonials" translate="title" module="Training_Testimonials" sortOrder="200" parent="Training_Testimonials::testimonials" action="testimonials/testimonial/index" resource="Training_Testimonials::parent"/>
     </menu>
 </config>

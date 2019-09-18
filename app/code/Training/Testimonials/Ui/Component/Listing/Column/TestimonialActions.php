@@ -45,7 +45,7 @@ class TestimonialActions extends Column
                 $item[$this->getData('name')]['edit'] = [
                     'href' => $this->urlBuilder->getUrl(
                         'testimonials/testimonial/edit',
-                        ['id' => $item['entity_id']]
+                        ['id' => $item['id']]
                     ),
                     'label' => __('Edit'),
                     'hidden' => false,
@@ -53,7 +53,7 @@ class TestimonialActions extends Column
                 $item[$this->getData('name')]['delete'] = [
                     'href' => $this->urlBuilder->getUrl(
                         'testimonials/testimonial/delete',
-                        ['id' => $item['entity_id']]
+                        ['id' => $item['id']]
                     ),
                     'label' => __('Delete'),
                     'hidden' => false,

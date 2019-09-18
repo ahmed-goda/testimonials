@@ -10,11 +10,11 @@
     <argument name="data" xsi:type="array">
         <!-- define where to find the date source -->
         <item name="js_config" xsi:type="array">
-            <item name="provider" xsi:type="string">testimonials_listing.testimonials_listing_data_source</item>
-            <item name="deps" xsi:type="string">testimonials_listing.testimonials_listing_data_source</item>
+            <item name="provider" xsi:type="string">testimonial_listing.testimonials_listing_data_source</item>
+            <item name="deps" xsi:type="string">testimonial_listing.testimonials_listing_data_source</item>
         </item>
         <!-- define where to find the columns -->
-        <item name="spinner" xsi:type="string">testimonials_columns</item>
+        <item name="spinner" xsi:type="string">testimonial_columns</item>
 
         <item name="buttons" xsi:type="array">
             <item name="add" xsi:type="array">
@@ -60,7 +60,7 @@
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="storageConfig" xsi:type="array">
-                        <item name="namespace" xsi:type="string">testimonials_listing</item>
+                        <item name="namespace" xsi:type="string">testimonial_listing</item>
                     </item>
                 </item>
             </argument>
@@ -69,7 +69,7 @@
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="columnsData" xsi:type="array">
-                        <item name="provider" xsi:type="string">testimonials_listing.testimonials_listing.testimonials_columns</item>
+                        <item name="provider" xsi:type="string">testimonial_listing.testimonial_listing.testimonial_columns</item>
                     </item>
                     <item name="component" xsi:type="string">Magento_Ui/js/grid/controls/columns</item>
                     <item name="displayArea" xsi:type="string">dataGridActions</item>
@@ -79,10 +79,10 @@
         <filterSearch name="fulltext">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
-                    <item name="provider" xsi:type="string">testimonials_listing.testimonials_listing_data_source</item>
-                    <item name="chipsProvider" xsi:type="string">testimonials_listing.testimonials_listing.listing_top.listing_filters_chips</item>
+                    <item name="provider" xsi:type="string">testimonial_listing.testimonials_listing_data_source</item>
+                    <item name="chipsProvider" xsi:type="string">testimonial_listing.testimonial_listing.listing_top.listing_filters_chips</item>
                     <item name="storageConfig" xsi:type="array">
-                        <item name="provider" xsi:type="string">testimonials_listing.testimonials_listing.listing_top.bookmarks</item>
+                        <item name="provider" xsi:type="string">testimonial_listing.testimonial_listing.listing_top.bookmarks</item>
                         <item name="namespace" xsi:type="string">current.search</item>
                     </item>
                 </item>
@@ -91,9 +91,9 @@
         <filters name="listing_filters">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
-                    <item name="columnsProvider" xsi:type="string">testimonials_listing.testimonials_listing.testimonials_columns</item>
+                    <item name="columnsProvider" xsi:type="string">testimonial_listing.testimonial_listing.testimonial_columns</item>
                     <item name="storageConfig" xsi:type="array">
-                        <item name="provider" xsi:type="string">testimonials_listing.testimonials_listing.listing_top.bookmarks</item>
+                        <item name="provider" xsi:type="string">testimonial_listing.testimonial_listing.listing_top.bookmarks</item>
                         <item name="namespace" xsi:type="string">current.filters</item>
                     </item>
                     <item name="templates" xsi:type="array">
@@ -105,9 +105,9 @@
                         </item>
                     </item>
                     <item name="childDefaults" xsi:type="array">
-                        <item name="provider" xsi:type="string">testimonials_listing.testimonials_listing.listing_top.listing_filters</item>
+                        <item name="provider" xsi:type="string">testimonial_listing.testimonial_listing.listing_top.listing_filters</item>
                         <item name="imports" xsi:type="array">
-                            <item name="visible" xsi:type="string">testimonials_listing.testimonials_listing.testimonials_columns.${ $.index }:visible</item>
+                            <item name="visible" xsi:type="string">testimonial_listing.testimonial_listing.testimonial_columns.${ $.index }:visible</item>
                         </item>
                     </item>
                 </item>
@@ -120,7 +120,7 @@
         <massaction name="listing_massaction">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
-                    <item name="selectProvider" xsi:type="string">testimonials_listing.testimonials_listing.testimonials_columns.ids</item>
+                    <item name="selectProvider" xsi:type="string">testimonial_listing.testimonial_listing.testimonial_columns.ids</item>
                     <item name="indexField" xsi:type="string">id</item>
                 </item>
             </argument>
@@ -143,7 +143,7 @@
                         <item name="type" xsi:type="string">edit</item>
                         <item name="label" xsi:type="string" translate="true">Edit</item>
                         <item name="callback" xsi:type="array">
-                            <item name="provider" xsi:type="string">testimonials_listing.testimonials_listing.testimonials_columns_editor</item>
+                            <item name="provider" xsi:type="string">testimonial_listing.testimonial_listing.testimonial_columns_editor</item>
                             <item name="target" xsi:type="string">editSelected</item>
                         </item>
                     </item>
@@ -154,27 +154,27 @@
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="storageConfig" xsi:type="array">
-                        <item name="provider" xsi:type="string">testimonials_listing.testimonials_listing.listing_top.bookmarks</item>
+                        <item name="provider" xsi:type="string">testimonial_listing.testimonial_listing.listing_top.bookmarks</item>
                         <item name="namespace" xsi:type="string">current.paging</item>
                     </item>
-                    <item name="selectProvider" xsi:type="string">testimonials_listing.testimonials_listing.testimonials_columns.ids</item>
+                    <item name="selectProvider" xsi:type="string">testimonial_listing.testimonial_listing.testimonial_columns.ids</item>
                 </item>
             </argument>
         </paging>
     </container>
 
     <!-- define the columns of my grid -->
-    <columns name="testimonials_columns">
+    <columns name="testimonial_columns">
 
         <argument name="data" xsi:type="array">
             <item name="config" xsi:type="array">
                 <!-- Bookmarks behaviour -->
                 <item name="storageConfig" xsi:type="array">
-                    <item name="provider" xsi:type="string">testimonials_listing.testimonials_listing.listing_top.bookmarks</item>
+                    <item name="provider" xsi:type="string">testimonial_listing.testimonial_listing.listing_top.bookmarks</item>
                     <item name="namespace" xsi:type="string">current</item>
                 </item>
                 <item name="editorConfig" xsi:type="array">
-                    <item name="selectProvider" xsi:type="string">testimonials_listing.testimonials_listing.testimonials_columns.ids</item>
+                    <item name="selectProvider" xsi:type="string">testimonial_listing.testimonial_listing.testimonial_columns.ids</item>
                     <item name="enabled" xsi:type="boolean">true</item>
                     <item name="indexField" xsi:type="string">id</item>
                     <item name="clientConfig" xsi:type="array">
@@ -184,7 +184,7 @@
                 </item>
                 <item name="childDefaults" xsi:type="array">
                     <item name="fieldAction" xsi:type="array">
-                        <item name="provider" xsi:type="string">testimonials_listing.testimonials_listing.testimonials_listing.testimonials_columns_editor</item>
+                        <item name="provider" xsi:type="string">testimonial_listing.testimonial_listing.testimonial_listing.testimonial_columns_editor</item>
                         <item name="target" xsi:type="string">startEdit</item>
                         <item name="params" xsi:type="array">
                             <item name="0" xsi:type="string">${ $.$data.rowIndex }</item>
@@ -192,7 +192,7 @@
                         </item>
                     </item>
                     <item name="storageConfig" xsi:type="array">
-                        <item name="provider" xsi:type="string">testimonials_listing.testimonials_listing.listing_top.bookmarks</item>
+                        <item name="provider" xsi:type="string">testimonial_listing.testimonial_listing.listing_top.bookmarks</item>
                         <item name="root" xsi:type="string">columns.${ $.index }</item>
                         <item name="namespace" xsi:type="string">current.${ $.storageConfig.root}</item>
                     </item>
@@ -254,6 +254,17 @@
             </argument>
         </column>
 
+        <!-- IsActive -->
+        <column name="is_active" class="Training\Testimonials\Ui\Component\Listing\Column\IsActive">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">select</item>
+                    <item name="label" translate="true" xsi:type="string">Status</item>
+                    <item name="sortOrder" xsi:type="number">40</item>
+                </item>
+            </argument>
+        </column>
+
         <!-- Column Created At -->
         <column name="created_at" class="Magento\Ui\Component\Listing\Columns\Date">
             <argument name="data" xsi:type="array">
@@ -262,7 +273,7 @@
                     <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/date</item>
                     <item name="dataType" xsi:type="string">date</item>
                     <item name="label" xsi:type="string" translate="true">Created</item>
-                    <item name="sortOrder" xsi:type="number">40</item>
+                    <item name="sortOrder" xsi:type="number">50</item>
                 </item>
             </argument>
         </column>
@@ -275,7 +286,7 @@
                     <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/date</item>
                     <item name="dataType" xsi:type="string">date</item>
                     <item name="label" xsi:type="string" translate="true">Updated</item>
-                    <item name="sortOrder" xsi:type="number">50</item>
+                    <item name="sortOrder" xsi:type="number">60</item>
                 </item>
             </argument>
         </column>
@@ -287,6 +298,7 @@
                     <item name="resizeEnabled" xsi:type="boolean">false</item>
                     <item name="resizeDefaultWidth" xsi:type="string">107</item>
                     <item name="indexField" xsi:type="string">id</item>
+                    <item name="sortOrder" xsi:type="number">70</item>
                 </item>
             </argument>
         </actionsColumn>

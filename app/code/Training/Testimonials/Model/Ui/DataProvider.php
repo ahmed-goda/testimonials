@@ -27,7 +27,6 @@ class DataProvider extends AbstractDataProvider
 
         $items = $this->collection->getItems();
         $this->loadedData = array();
-
         foreach ($items as $testimonial) {
             $this->loadedData[$testimonial->getId()]['testimonial'] = $testimonial->getData();
         }

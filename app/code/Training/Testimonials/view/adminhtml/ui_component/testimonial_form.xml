@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noFull spaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
     <argument name="data" xsi:type="array">
         <item name="js_config" xsi:type="array">
-            <item name="provider" xsi:type="string">testimonials_form.testimonials_form_data_source</item>
-            <item name="deps" xsi:type="string">testimonials_form.testimonials_form_data_source</item>
+            <item name="provider" xsi:type="string">testimonial_form.testimonials_form_data_source</item>
+            <item name="deps" xsi:type="string">testimonial_form.testimonials_form_data_source</item>
         </item>
-        <item name="label" xsi:type="string" translate="true">Member Form</item>
+        <item name="label" xsi:type="string" translate="true">Testimonial Form</item>
         <item name="layout" xsi:type="array">
             <item name="type" xsi:type="string">tabs</item>
         </item>
         <item name="buttons" xsi:type="array">
-            <item name="back" xsi:type="string">Training\Testimonials\Block\Adminhtml\Member\Edit\BackButton</item>
-            <item name="delete" xsi:type="string">Training\Testimonials\Block\Adminhtml\Member\Edit\DeleteButton</item>
-            <item name="reset" xsi:type="string">Training\Testimonials\Block\Adminhtml\Member\Edit\ResetButton</item>
-            <item name="save_and_continue" xsi:type="string">Training\Testimonials\Block\Adminhtml\Member\Edit\SaveAndContinueButton</item>
-            <item name="save" xsi:type="string">Training\Testimonials\Block\Adminhtml\Member\Edit\SaveButton</item>
+            <item name="back" xsi:type="string">Training\Testimonials\Block\Adminhtml\Testimonial\Edit\BackButton</item>
+            <item name="delete" xsi:type="string">Training\Testimonials\Block\Adminhtml\Testimonial\Edit\DeleteButton</item>
+            <item name="reset" xsi:type="string">Training\Testimonials\Block\Adminhtml\Testimonial\Edit\ResetButton</item>
+            <item name="save_and_continue" xsi:type="string">Training\Testimonials\Block\Adminhtml\Testimonial\Edit\SaveAndContinueButton</item>
+            <item name="save" xsi:type="string">Training\Testimonials\Block\Adminhtml\Testimonial\Edit\SaveButton</item>
         </item>
 
     </argument>
@@ -23,8 +23,8 @@
         <argument name="dataProvider" xsi:type="configurableObject">
             <argument name="class" xsi:type="string">Training\Testimonials\Model\Ui\DataProvider</argument>
             <argument name="name" xsi:type="string">testimonials_form_data_source</argument>
-            <argument name="primaryFieldFull " xsi:type="string">id</argument>
-            <argument name="requestFieldFull " xsi:type="string">id</argument>
+            <argument name="primaryFieldName" xsi:type="string">id</argument>
+            <argument name="requestFieldName" xsi:type="string">id</argument>
         </argument>
         <argument name="data" xsi:type="array">
             <item name="js_config" xsi:type="array">
@@ -34,10 +34,10 @@
         </argument>
     </dataSource>
 
-    <fieldset name="testimonials_menu">
+    <fieldset name="testimonial">
         <argument name="data" xsi:type="array">
             <item name="config" xsi:type="array">
-                <item name="label" xsi:type="string" translate="true">Member FieldSet</item>
+                <item name="label" xsi:type="string" translate="true">Testimonial FieldSet</item>
             </item>
         </argument>
 
@@ -48,20 +48,23 @@
                     <item name="visible" xsi:type="boolean">false</item>
                     <item name="dataType" xsi:type="string">text</item>
                     <item name="formElement" xsi:type="string">input</item>
-                    <item name="source" xsi:type="string">testimonials_menu</item>
+                    <item name="source" xsi:type="string">testimonial</item>
                 </item>
             </argument>
         </field>
 
         <!-- This field has data type 'text' and standard 'input' form element and looks like input -->
-        <field name="name">
+        <field name="full_name">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="label" xsi:type="string">Full Name</item>
                     <item name="visible" xsi:type="boolean">true</item>
                     <item name="dataType" xsi:type="string">text</item>
                     <item name="formElement" xsi:type="string">input</item>
-                    <item name="source" xsi:type="string">testimonials_menu</item>
+                    <item name="source" xsi:type="string">testimonial</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                    </item>
                 </item>
             </argument>
         </field>
@@ -73,7 +76,31 @@
                     <item name="visible" xsi:type="boolean">true</item>
                     <item name="dataType" xsi:type="string">text</item>
                     <item name="formElement" xsi:type="string">input</item>
-                    <item name="source" xsi:type="string">testimonials_menu</item>
+                    <item name="source" xsi:type="string">testimonial</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                    </item>
+                </item>
+            </argument>
+        </field>
+
+        <field name="is_active">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="sortOrder" xsi:type="number">10</item>
+                    <item name="dataType" xsi:type="string">boolean</item>
+                    <item name="formElement" xsi:type="string">checkbox</item>
+                    <item name="source" xsi:type="string">testimonial</item>
+                    <item name="prefer" xsi:type="string">toggle</item>
+                    <item name="label" xsi:type="string" translate="true">Active</item>
+                    <item name="valueMap" xsi:type="array">
+                        <item name="true" xsi:type="string">1</item>
+                        <item name="false" xsi:type="string">0</item>
+                    </item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                    </item>
+                    <item name="default" xsi:type="string">1</item>
                 </item>
             </argument>
         </field>
@@ -82,13 +109,10 @@
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="dataType" xsi:type="string">string</item>
-                    <item name="label" xsi:type="string" translate="true"> Start Date</item>
+                    <item name="label" xsi:type="string" translate="true">Created At</item>
                     <item name="formElement" xsi:type="string">date</item>
-                    <item name="source" xsi:type="string">testimonials_menu</item>
-                    <item name="sortOrder" xsi:type="number">21</item>
-                    <item name="validation" xsi:type="array">
-                        <item name="required-entry" xsi:type="boolean">true</item>
-                    </item>
+                    <item name="source" xsi:type="string">testimonial</item>
+                    <item name="sortOrder" xsi:type="number">20</item>
                     <item name="options" xsi:type="array">
                         <item name="dateFormat" xsi:type="string">yyyy-MM-dd</item>
                         <item name="timeFormat" xsi:type="string">HH:mm:ss</item>
@@ -104,11 +128,8 @@
                     <item name="dataType" xsi:type="string">string</item>
                     <item name="label" xsi:type="string" translate="true">Updated Date</item>
                     <item name="formElement" xsi:type="string">date</item>
-                    <item name="source" xsi:type="string">testimonials_menu</item>
+                    <item name="source" xsi:type="string">testimonial</item>
                     <item name="sortOrder" xsi:type="number">21</item>
-                    <item name="validation" xsi:type="array">
-                        <item name="required-entry" xsi:type="boolean">true</item>
-                    </item>
                     <item name="options" xsi:type="array">
                         <item name="dateFormat" xsi:type="string">yyyy-MM-dd</item>
                         <item name="timeFormat" xsi:type="string">HH:mm:ss</item>

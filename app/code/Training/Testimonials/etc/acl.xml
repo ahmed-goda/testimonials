@@ -9,9 +9,9 @@
     <acl>
         <resources>
             <resource id="Magento_Backend::admin">
-                <resource id="Training_Testimonials::testimonials_menu" title="Custom Admin Parent"
+                <resource id="Training_Testimonials::parent" title="Upload Testimonials"
                           translate="title" sortOrder="30">
-                    <resource id="Training_Testimonials::testimonials" title="First Child" translate="title" sortOrder="10"/>
+                    <resource id="Training_Testimonials::upload_file" title="Upload File" translate="title" sortOrder="10"/>
                 </resource>
             </resource>
         </resources>

@@ -18,12 +18,11 @@ class Index extends Action
        parent::__construct($context);
     }
 
-
     public function execute()
     {
-        return $this->pageFactory->create();
+        //return $this->pageFactory->create();
         $resultPage = $this->pageFactory->create();
-		$resultPage->getConfig()->getTitle()->prepend((__('Posts')));
+		$resultPage->getConfig()->getTitle()->prepend((__('Testimonials')));
 
 		return $resultPage;
     }

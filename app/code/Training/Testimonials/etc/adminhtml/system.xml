@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="upload_file" sortOrder="120" translate="label">
+            <label>Custom Admin </label>
+        </tab>
+        <section id="upload_data_section" translate="label" sortOrder="100" showInWebsite="1" showInStore="1" showInDefault="1">
+            <label>Upload Testimonials</label>
+            <tab>upload_file</tab>
+            <resource>Training_Testimonials::parent</resource>
+            <group id="upload_file_group" showInDefault="1" showInStore="1" showInWebsite="1">
+                <label>Upload File</label>
+                <field id="upload_file_field" showInWebsite="1" showInStore="1" showInDefault="1" translate="label"
+                type="Magento\Config\Block\System\Config\Form\Field\File" sortOrder="100">
+                    <label>Upload File</label>
+                    <backend_model>Magento\Config\Model\Config\Backend\File</backend_model>
+                    <upload_dir config="system" scope_info="1">pub/media/uploads</upload_dir>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

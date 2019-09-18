@@ -22,12 +22,6 @@ class NewAction extends Action
         parent::__construct($context);
     }
 
-    protected function _isAllowed()
-    {
-        return $this->_authorization->isAllowed('Training_Testimonials::parent');
-    }
-
-
     public function execute()
     {
         /** @var \Magento\Backend\Model\View\Result\Forward $resultForward */

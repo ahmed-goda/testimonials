@@ -1,0 +1,38 @@
+admin_ov0a9o
+
+Last Course #4
+
+-Useful Commands & Notes:
+    
+    - composer create-project --repository-url=https://repo.magento.com/ magento/project-community-edition magento
+    - Run Composer Install.
+    
+    Visit Admin Dashboard:
+    - Go To System->Permissions->User Roles
+    - Create New User Role And User To be used instead Administrator..
+        it might be called "Manager" with all permisssions as same as Administrator.
+        This is not a magento standard it's an AWS community standard. "Search Why we should keep root user separated!"
+    
+    - Go To Stores->Configurations
+    - From General Tab->General Section->Set Default Country&Allow Countries Fields Values.
+    - Set Store Information (Store Name, Country).
+    - Enable Single-Store Mode For Performance Optimization. and it can be disabled whenever needed.
+    - From General Tab->Web Section->Set Default Cookies Settings (Set Cookie Restriction Mode = Yes).
+    - From General Tab->Currency Setup Section->Set Base Currency & Default Display Currency and Allowed Currencies.
+    - From General Tab->Contacts Section->Set Email Options.
+    - From General Tab->Reports Section->Dashboard Set Year-To-Date-Starts and Current Month Starts. In UK preferable.
+    - From Catalog Tab->Catalog Section->Use flat catalog category to disable EAV at the beginning to enhance performance. (set value to "yes" for both categories and product)
+    - Set Payment&Shipping Methods Sections at Sales Tab. (Enable Cach-on-delivery for payment methods). You may also consider Taxes and Emails.
+    - From Advanced Tab->Admin Section->Set Admin Account SHaring->yes & Enable Charts For Dashboard.
+    - From Advanced Tab->System Section->Full Page Cache->Set Caching Application to Varnish in case u r familiar with it "Recommended for performance".
+    - From Advanced Tab->Developer Section->CSS Settings Minify Css Files->yes.
+    - From Advanced Tab->Developer Section->Static Files Settings Sign Static Files->yes.
+    !!Not Recommended!!- From Advanced Tab->Developer Section->Grid Settings-> Asynchronous indexing->Enable.
+    - Save Config.
+    - Go To System-> Cache Management-> Flush Cache.
+
+* We Can Use our Own LayoutHandler Customized by mentioning this line in our execute method of controller-->
+    $resultPage = $this->resultPageFactory->create();
+    $resultPage->addHandle('my_customized_non_standard_file_as_per_the_URL_path');
+so magento gives u the opportunity to pass yr favorable layout handler in the specified area!
+same thing can be used in blocks! in case of using resultPageFactory.

@@ -1,0 +1,12 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_ImportExport:etc/import.xsd">
+    <type name="Magento\ImportExport\Model\Import\SampleFileProvider">
+        <arguments>
+            <argument name="samples" xsi:type="array">
+                <item name="testimonials" xsi:type="string">Training_Testimonials</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <preference for="Magento\CatalogImportExport\Model\Import\Product" type="Training\Testimonials\Model\Import\Testimonials" />
+</config>

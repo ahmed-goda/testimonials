@@ -36,6 +36,13 @@ class InstallSchema implements InstallSchemaInterface
             'THE TESTIMONIAL DATA'
         )
         ->addColumn(
+            'is_active',
+            Table::TYPE_BOOLEAN,
+            10,
+            ['nullable'=> false, 'default'=> true],
+            'TO BE SHOWN FOR FRONTEND CUSTOMERS OR NOT'
+        )
+        ->addColumn(
             'created_at',
             Table::TYPE_TIMESTAMP,
             null,

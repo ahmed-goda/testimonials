@@ -1,11 +1,11 @@
 <?php
 
 namespace Training\Testimonials\Controller\Adminhtml\Testimonial;
+
 use Magento\Backend\App\Action;
 use Magento\Framework\Registry;
 use Magento\Framework\View\Result\PageFactory;
 use Training\Testimonials\Model\Testimonial;
-
 
 class Edit extends Action
 {
@@ -33,28 +33,31 @@ class Edit extends Action
     public function execute()
     {
         $id = $this->getRequest()->getParam('id');
-        $model = $this->testimonial;
+        $testimonial = $this->testimonial;
 
         if($id) {
-            $model->load($id);
-            if(!$model->getId()) {
+            $testimonial->load($id);
+            
+            if(!$testimonial->getId()) {
                 $this->messageManager->addErrorMessage(__('This Testimonial does not exists'));
 
                 $result = $this->resultRedirectFactory->create();
-                return $result->setPath("testimonials/index/index");
+                return $result->setPath("testimonials/testimonial/index");
             }
         }
 
         $data = $this->_getSession()->getFormData(true);
 
         if(!empty($data)) {
-            $model->setData($data);
+            $testimonial->setData($data);
         }
 
-        $this->registry->register('testimonial', $model);
+        $this->registry->register('testimonial', $testimonial);
 
         /** @var \Magento\Backend\Model\View\Result\Page $resultPage */
         $resultPage = $this->pageFactory->create();
+
+        $resultPage->addHandle('testimonials_form');
 
         $resultPage->addBreadcrumb(
             $id ? __('Edit Testimonial') : __('Add a New Testimonial'),
