@@ -8,6 +8,7 @@ use Training\Testimonials\Model\ResourceModel\Testimonial as TestimonialResource
 
 class Collection extends AbstractCollection
 {
+    protected $_idFieldName = 'id';
 
     protected function _construct()
     {

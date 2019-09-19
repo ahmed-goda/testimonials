@@ -17,7 +17,8 @@ class MassDelete extends Action
         Filter $filter,
         CollectionFactory $collectionFactory,
         RedirectFactory $resultRedirectFactory,
-        Action\Context $context)
+        Action\Context $context
+    )
     {
 
         $this->filter = $filter;
@@ -29,8 +30,8 @@ class MassDelete extends Action
     public function execute()
     {
         $collection =  $this->filter->getCollection($this->collectionFactory->create());
-        $size = $collection->getSize();
-
+        $size = $collection->count();
+        
         foreach ($collection as $item) {
             $item->delete();
         }
