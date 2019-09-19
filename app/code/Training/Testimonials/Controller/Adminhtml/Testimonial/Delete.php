@@ -1,9 +1,10 @@
 <?php
 
 namespace Training\Testimonials\Controller\Adminhtml\Testimonial;
-use Magento\Backend\App\Action;
-use Magento\Backend\Model\View\Result\RedirectFactory;
-use Magento\Framework\View\Result\PageFactory;
+
+use Magento\{Backend\App\Action,
+            Backend\Model\View\Result\RedirectFactory,
+            Framework\View\Result\PageFactory};
 use Training\Testimonials\Model\Testimonial;
 
 
@@ -33,17 +34,17 @@ class Delete extends Action
     public function execute()
     {
         $resultRedirect = $this->resultRedirectFactory->create();
-        $id = $this->getRequest()->getParam('id');
-        if ($id) {
+        $entityId = $this->getRequest()->getParam('id');
+        if ($entityId) {
             $model = $this->model;
-            $model->load($id);
+            $model->load($entityId);
             try {
                 $model->delete();
                 $this->messageManager->addSuccessMessage(__('Testimonial Deleted'));
                 return $resultRedirect->setPath('*/*/index');
             } catch (\Exception $e) {
                 $this->messageManager->addErrorMessage(__($e->getMessage()));
-                return $resultRedirect->setPath('*/*/edit', ['id' => $id]);
+                return $resultRedirect->setPath('*/*/edit', ['id' => $entityId]);
             }
         }
 

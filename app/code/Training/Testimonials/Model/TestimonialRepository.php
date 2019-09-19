@@ -2,14 +2,14 @@
 
 namespace Training\Testimonials\Model;
 
-use Magento\Framework\DataObject;
-use Training\Testimonials\Api\TestimonialRepositoryInterface;
-use Training\Testimonials\Model\ResourceModel\Testimonial\CollectionFactory;
-use Training\Testimonials\Model\TestimonialFactory;
-use Training\Testimonials\Model\ResourceModel\Testimonial;
-use Training\Testimonials\Api\Data\TestimonialSearchResultInterfaceFactory;
-use Magento\Framework\Api\SearchCriteria\CollectionProcessor;
-use Magento\Framework\Api\SearchCriteriaInterface;
+use Magento\Framework\{DataObject,
+                        Api\SearchCriteria\CollectionProcessor,
+                        Api\SearchCriteriaInterface};
+use Training\Testimonials\{Api\TestimonialRepositoryInterface,
+                            Api\Data\TestimonialSearchResultInterfaceFactory,
+                            Model\ResourceModel\Testimonial\CollectionFactory,
+                            Model\TestimonialFactory,
+                            Model\ResourceModel\Testimonial};
 
 class TestimonialRepository implements TestimonialRepositoryInterface
 {
@@ -22,6 +22,10 @@ class TestimonialRepository implements TestimonialRepositoryInterface
     /**
      * Class constructor.
      * @param CollectionFactory $collectionFactory
+     * @param TestimonialFactory $testimonialFactory
+     * @param Testimonial $testimonial
+     * @param TestimonialSearchResultInterfaceFactory $resultInterfaceFactory
+     * @param CollectionProcessor $collectionProcessor
      */
     public function __construct(
         CollectionFactory $collectionFactory,
@@ -45,17 +49,18 @@ class TestimonialRepository implements TestimonialRepositoryInterface
 
     /**
      *
-     * @param int $id
+     * @param int $entityId
      * @return \Training\Testimonials\Api\Data\TestimonialInterface
      */
-    public function getTestimonialById(int $id)
+    public function getTestimonialById(int $entityId)
     {
-        return $this->testimonialFactory->create()->load($id);
+        return $this->testimonialFactory->create()->load($entityId);
     }
 
     /**
      *
      * @param \Training\Testimonials\Api\Data\TestimonialInterface $testimonial
+     * 
      * @return \Training\Testimonials\Api\Data\TestimonialInterface
      */
     public function saveTestimonial(\Training\Testimonials\Api\Data\TestimonialInterface $testimonial)
@@ -75,12 +80,12 @@ class TestimonialRepository implements TestimonialRepositoryInterface
 
     /**
      *
-     * @param int $id
+     * @param int $entityId
      * @return void
      */
-    public function deleteTestimonialById(int $id)
+    public function deleteTestimonialById(int $entityId)
     {
-        $testimonial = $this->testimonialFactory->create()->load($id);
+        $testimonial = $this->testimonialFactory->create()->load($entityId);
         $testimonial->delete();
     }
 

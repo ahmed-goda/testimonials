@@ -2,10 +2,11 @@
 
 namespace Training\Testimonials\Ui\Component\Listing\Column;
 
-use Magento\Framework\View\Element\UiComponent\ContextInterface;
-use Magento\Framework\View\Element\UiComponentFactory;
+use Magento\Framework\{View\Element\UiComponent\ContextInterface,
+                      View\Element\UiComponentFactory,
+                      UrlInterface};
 use Magento\Ui\Component\Listing\Columns\Column;
-use Magento\Framework\UrlInterface;
+
 /**
  * Class DepartmentActions
  */
@@ -15,7 +16,10 @@ class TestimonialActions extends Column
      * @var UrlInterface
      */
     protected $urlBuilder;
+
     /**
+     * Class Constructor
+     *
      * @param ContextInterface $context
      * @param UiComponentFactory $uiComponentFactory
      * @param UrlInterface $urlBuilder
@@ -32,6 +36,7 @@ class TestimonialActions extends Column
         $this->urlBuilder = $urlBuilder;
         parent::__construct($context, $uiComponentFactory, $components, $data);
     }
+
     /**
      * Prepare Data Source
      *

@@ -4,7 +4,9 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
---><listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+-->
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
 
     <!-- main part of the grid -->
     <argument name="data" xsi:type="array">
@@ -24,7 +26,6 @@
                 <item name="url" xsi:type="string">*/*/newAction</item>
             </item>
         </item>
-
     </argument>
 
     <!-- define the date source (must be the same than in argument/item/provider and argument/js_config/deps -->
@@ -165,7 +166,6 @@
 
     <!-- define the columns of my grid -->
     <columns name="testimonial_columns">
-
         <argument name="data" xsi:type="array">
             <item name="config" xsi:type="array">
                 <!-- Bookmarks behaviour -->
@@ -302,7 +302,6 @@
                 </item>
             </argument>
         </actionsColumn>
-
-
     </columns>
+    
 </listing>

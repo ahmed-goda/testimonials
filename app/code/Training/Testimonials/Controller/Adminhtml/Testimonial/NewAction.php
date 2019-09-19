@@ -2,13 +2,12 @@
 
 namespace Training\Testimonials\Controller\Adminhtml\Testimonial;
 
-use Magento\Backend\App\Action;
-use Magento\Framework\View\Result\PageFactory;
-use Magento\Backend\Model\View\Result\ForwardFactory;
+use Magento\{Backend\App\Action,
+            Backend\Model\View\Result\ForwardFactory,
+            Framework\View\Result\PageFactory};
 
 class NewAction extends Action
 {
-
     protected  $forwardFactory;
     private $pageFactory;
     
@@ -20,6 +19,11 @@ class NewAction extends Action
         $this->forwardFactory = $forwardFactory;
         $this->pageFactory = $pageFactory;
         parent::__construct($context);
+    }
+
+    protected function _isAllowed()
+    {
+        return $this->_authorization->isAllowed('Training_Testimonials::parent');
     }
 
     public function execute()

@@ -2,16 +2,17 @@
 
 namespace Training\Testimonials\Setup;
 
-use Magento\Framework\Setup\InstallSchemaInterface;
-use Magento\Framework\Setup\ModuleContextInterface;
-use Magento\Framework\Setup\SchemaSetupInterface;
-use Magento\Framework\Db\Ddl\Table;
+use Magento\Framework\{Setup\InstallSchemaInterface,
+                      Setup\ModuleContextInterface,
+                      Setup\SchemaSetupInterface,
+                      Db\Ddl\Table};
 
 class InstallSchema implements InstallSchemaInterface
 {
     public function install(SchemaSetupInterface $setup, ModuleContextInterface $context)
     {
         $setup->startSetup();
+
         $table = $setup->getConnection()->newTable(
             $setup->getTable('testimonials')
         )->addColumn(
@@ -59,6 +60,7 @@ class InstallSchema implements InstallSchemaInterface
         ->setComment('Testimonials Table');
         
         $setup->getConnection()->createTable($table);
+        
         $setup->endSetup();
     }
 }

@@ -7,7 +7,8 @@ use Training\Testimonials\Model\ResourceModel\Testimonial\CollectionFactory;
 
 class DataProvider extends AbstractDataProvider
 {
-   protected $loadedData;
+    protected $loadedData;
+    
     public function __construct(
         CollectionFactory $collectionFactory,
         $name,

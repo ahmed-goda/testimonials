@@ -3,15 +3,16 @@
 namespace Training\Testimonials\Model\Import;
 
 use Exception;
-use Magento\Framework\App\ResourceConnection;
-use Magento\Framework\DB\Adapter\AdapterInterface;
-use Magento\Framework\Json\Helper\Data as JsonHelper;
-use Magento\ImportExport\Helper\Data as ImportHelper;
-use Magento\ImportExport\Model\Import;
-use Magento\ImportExport\Model\Import\Entity\AbstractEntity;
-use Magento\ImportExport\Model\Import\ErrorProcessing\ProcessingErrorAggregatorInterface;
-use Magento\ImportExport\Model\ResourceModel\Helper;
-use Magento\ImportExport\Model\ResourceModel\Import\Data;
+use Magento\Framework\{App\ResourceConnection,
+                       DB\Adapter\AdapterInterface,
+                       Json\Helper\Data as JsonHelper};
+use Magento\ImportExport\{
+                        Helper\Data as ImportHelper,
+                        Model\Import,
+                        Model\Import\Entity\AbstractEntity,
+                        Model\Import\ErrorProcessing\ProcessingErrorAggregatorInterface,
+                        Model\ResourceModel\Helper,
+                        Model\ResourceModel\Import\Data};
 
 /**
  * Class Testimonials
@@ -45,7 +46,8 @@ class Testimonials extends AbstractEntity
     protected $validColumnNames = [
         'id',
         'full_name',
-        'testimonial_text'
+        'testimonial_text',
+        'is_active'
     ];
 
     /**

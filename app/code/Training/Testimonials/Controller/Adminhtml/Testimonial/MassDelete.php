@@ -2,10 +2,10 @@
 
 namespace Training\Testimonials\Controller\Adminhtml\Testimonial;
 
-use Magento\Backend\App\Action;
-use Magento\Ui\Component\MassAction\Filter;
+use Magento\{Backend\App\Action,
+            Backend\Model\View\Result\RedirectFactory,
+            Ui\Component\MassAction\Filter};
 use Training\Testimonials\Model\ResourceModel\Testimonial\CollectionFactory;
-use Magento\Backend\Model\View\Result\RedirectFactory;
 
 class MassDelete extends Action
 {
@@ -30,7 +30,7 @@ class MassDelete extends Action
     public function execute()
     {
         $collection =  $this->filter->getCollection($this->collectionFactory->create());
-        $size = $collection->count();
+        $size = $collection->getSize();
         
         foreach ($collection as $item) {
             $item->delete();

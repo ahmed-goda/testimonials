@@ -2,12 +2,8 @@
 
 namespace Training\Testimonials\Controller\Index;
 
-use Magento\Framework\App\Action\Context;
-use Magento\Framework\App\Action\ResponseInterface;
-use Magento\Framework\App\Action\Action;
-use Training\Testimonials\Model\Testimonial;
-use Training\Testimonials\Model\TestimonialFactory;
-use Magento\Framework\View\Result\PageFactory;
+use Magento\Framework\{App\Action\Context, App\Action\ResponseInterface, App\Action\Action, View\Result\PageFactory};
+use Training\Testimonials\Model\{Testimonial, TestimonialFactory};
 
 class Index extends Action
 {
@@ -30,7 +26,6 @@ class Index extends Action
 
     public function execute()
     {
-        $testimonial = $this->testimonial->create();
         return $this->pageFactory->create();
     }
 }

@@ -3,15 +3,12 @@
 namespace Training\Testimonials\Model;
 
 use Magento\Framework\Model\AbstractExtensibleModel;
-use Training\Testimonials\Model\ResourceModel\Testimonial as TestimonialResource;
-use Training\Testimonials\Api\Data\TestimonialInterface;
+use Training\Testimonials\{Model\ResourceModel\Testimonial as TestimonialResource,
+                            Api\Data\TestimonialInterface};
 
 class Testimonial extends AbstractExtensibleModel implements TestimonialInterface
 {
 
-    /**
-     * Class constructor.
-     */
     protected function _construct()
     {
         $this->_init(TestimonialResource::class);

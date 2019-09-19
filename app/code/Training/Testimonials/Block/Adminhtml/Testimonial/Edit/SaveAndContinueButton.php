@@ -2,7 +2,6 @@
 
 namespace Training\Testimonials\Block\Adminhtml\Testimonial\Edit;
 
-
 use Magento\Framework\View\Element\UiComponent\Control\ButtonProviderInterface;
 
 class SaveAndContinueButton implements ButtonProviderInterface

@@ -3,8 +3,8 @@
 namespace Training\Testimonials\Controller\Adminhtml\Testimonial;
 
 
-use Magento\Backend\App\Action;
-use Magento\Framework\Controller\Result\JsonFactory;
+use Magento\{Backend\App\Action,
+            Framework\Controller\Result\JsonFactory};
 use Training\Testimonials\Model\Testimonial;
 
 class InlineEdit extends Action
@@ -47,7 +47,6 @@ class InlineEdit extends Action
                         $error = true;
                     }
                 }
-
             }
         }
 
@@ -56,6 +55,4 @@ class InlineEdit extends Action
             'error' => $error
         ]);
     }
-
-
 }

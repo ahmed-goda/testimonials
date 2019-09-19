@@ -2,9 +2,9 @@
 
 namespace Training\Testimonials\Controller\Adminhtml\Testimonial;
 
-use Magento\Backend\App\Action;
-use Magento\Framework\Registry;
-use Magento\Framework\View\Result\PageFactory;
+use Magento\{Backend\App\Action,
+            Framework\Registry,
+            Framework\View\Result\PageFactory};
 use Training\Testimonials\Model\Testimonial;
 
 class Edit extends Action
@@ -32,11 +32,11 @@ class Edit extends Action
 
     public function execute()
     {
-        $id = $this->getRequest()->getParam('id');
+        $entityId = $this->getRequest()->getParam('id');
         $testimonial = $this->testimonial;
 
-        if($id) {
-            $testimonial->load($id);
+        if($entityId) {
+            $testimonial->load($entityId);
             
             if(!$testimonial->getId()) {
                 $this->messageManager->addErrorMessage(__('This Testimonial does not exists'));
@@ -60,10 +60,10 @@ class Edit extends Action
         $resultPage->addHandle('testimonials_form');
 
         $resultPage->addBreadcrumb(
-            $id ? __('Edit Testimonial') : __('Add a New Testimonial'),
-            $id ? __('Edit Testimonial') : __('Add a New Testimonial')
+            $entityId ? __('Edit Testimonial') : __('Add a New Testimonial'),
+            $entityId ? __('Edit Testimonial') : __('Add a New Testimonial')
         );
-        if($id) {
+        if($entityId) {
             $resultPage->getConfig()->getTitle()->prepend('Edit');
         } else {
             $resultPage->getConfig()->getTitle()->prepend('Add');

@@ -2,14 +2,13 @@
 
 namespace Training\Testimonials\Controller\Adminhtml\Testimonial;
 
-use Magento\Backend\App\Action;
-use Magento\Backend\Model\View\Result\RedirectFactory;
-use Magento\Framework\View\Result\PageFactory;
+use Magento\{Backend\App\Action,
+            Backend\Model\View\Result\RedirectFactory,
+            Framework\View\Result\PageFactory};
 use Training\Testimonials\Model\Testimonial;
 
 class Save extends Action
 {
-
     protected $model;
     private $pageFactory;
     protected $resultRedirectFactory;
@@ -31,7 +30,6 @@ class Save extends Action
         return $this->_authorization->isAllowed('Training_Testimonials::parent');
     }
 
-
     public function execute()
     {
         $data = $this->getRequest()->getPostValue();
@@ -42,8 +40,8 @@ class Save extends Action
         if($data) {
             $testimonial = $this->getRequest()->getParam('testimonial');
             if(array_key_exists('id', $testimonial)) {
-                $id = $testimonial['id'];
-                $model = $this->model->load($id);
+                $entityId = $testimonial['id'];
+                $model = $this->model->load($entityId);
             }
             $model = $this->model->setData($data['testimonial']);
         }

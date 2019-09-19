@@ -2,7 +2,6 @@
 
 namespace Training\Testimonials\Block\Adminhtml\Testimonial\Edit;
 
-
 use Magento\Framework\Registry;
 use Training\Testimonials\Model\Testimonial;
 
