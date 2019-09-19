@@ -31,24 +31,6 @@ class Index extends Action
     public function execute()
     {
         $testimonial = $this->testimonial->create();
-        // $testimonial = $testimonial->load(4);
-        // $testimonial->setAddress('New Address');
-        // $testimonial->save();
-        // var_dump($testimonial->getData());
-        // $testimonial->delete();
-
-        // $new_testimonial = $this->testimonial->create()->addData([
-        //     'name'=>'Rand',
-        //     'address'=>'a new address',
-        //     'status'=>true,
-        //     'phone_number'=>'987456948',
-        // ]);
-        // $new_testimonial->save();
-
-        $collection = $testimonial->getCollection()->setOrder(
-            'created_at',
-            'asc'
-        );
         return $this->pageFactory->create();
     }
 }

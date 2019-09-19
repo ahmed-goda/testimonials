@@ -18,9 +18,8 @@ class DisplayTestimonials extends Template
 
 	public function getTestimonialsCollection(){
 		$testimonials = $this->testimonialsFactory->create();
-		return $testimonials->getCollection()->setOrder(
-            'created_at',
-            'desc'
-        );
+		return $testimonials->getCollection()
+			->setOrder('created_at', 'asc')
+			->addFieldToFilter('is_active', array('eq' => true));
 	}
 }
