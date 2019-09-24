@@ -225,6 +225,7 @@ return [
         'Amazon_Core' => 1,
         'Amazon_Login' => 1,
         'Amazon_Payment' => 1,
+        'Bytology_AddQtyButtonsToPDP' => 1,
         'Bytology_CLI' => 1,
         'Bytology_LoadCssForAuthenticated' => 1,
         'Dotdigitalgroup_Email' => 1,
